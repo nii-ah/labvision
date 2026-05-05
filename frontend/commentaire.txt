@@ -1,0 +1,7 @@
+interface du 5 mais :
+    il faut que les element suivant soit responsive:
+        header,
+        logo des partenaire,
+        section femme.
+    modification selon les recomandation de madame la presidente
+    
