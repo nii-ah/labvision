@@ -4,4 +4,27 @@ interface du 5 mais :
         logo des partenaire,
         section femme.
     modification selon les recomandation de madame la presidente
-    
+
+
+comment faire un push sur main:
+    # Commiter ton travail sur dev
+    git add .
+    git commit -m "ton message"
+    git push origin dev
+
+    # Merger vers main
+    git checkout main
+    git merge dev
+    git push origin main  # → Vercel redéploie
+
+    # Revenir sur dev
+    git checkout dev
+
+a faire le soir du 6 mais:
+    - wireframe des different page et leur logique
+    - diagramme relationnelle
+    - copie des formulaires.
+    - diapos
+
+a faire le matin du 7 mais:
+    - analyse
