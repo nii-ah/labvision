@@ -25,6 +25,11 @@ export interface AuthResponse {
   };
 }
 
+export interface ValidationErrorResponse {
+  message: string;
+  errors?: Record<string, string[]>;
+}
+
 export const registerUser = async (data: RegisterData): Promise<AuthResponse> => {
   const response = await api.post<AuthResponse>('/register', data);
   return response.data;
