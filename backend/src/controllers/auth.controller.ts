@@ -1,9 +1,12 @@
-// controllers/auth.controller.ts
+// controllers/auth.controller.ts — ajoute cette fonction
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
 import { pool } from "../db";
-import { registerSchema } from "../Validators/auth.validator";
+import { registerSchema, loginSchema } from "../Validators/auth.validator";
+import jwt from 'jsonwebtoken';
+
+
 export const register = async (req: Request, res: Response) => {
   try {
     // 1. Validation des données
@@ -15,7 +18,8 @@ export const register = async (req: Request, res: Response) => {
       });
     }
 
-    const { nom, prenom, email, mot_de_passe } = parsed.data;
+    const { nom, prenom, mot_de_passe } = parsed.data;
+    const email = parsed.data.email.toLowerCase();
 
     // 2. Vérifier que l'email n'existe pas déjà
     const [existing]: any = await pool.query(
@@ -65,3 +69,78 @@ export const register = async (req: Request, res: Response) => {
       .json({ message: "Erreur serveur, veuillez réessayer." });
   }
 };
+
+
+export const login = async (req: Request, res: Response) => {
+  try {
+    // 1. Validation des données
+    const parsed = loginSchema.safeParse(req.body);
+    if (!parsed.success) {
+      return res.status(400).json({
+        message: 'Données invalides',
+        errors: parsed.error.flatten().fieldErrors,
+      });
+    }
+
+    const email = parsed.data.email.toLowerCase();
+    const { mot_de_passe } = parsed.data;
+
+    // 2. Récupérer l'utilisateur par email
+    const [users]: any = await pool.query(
+      'SELECT id, nom, prenom, email, mot_de_passe, email_verifie FROM users WHERE email = ?',
+      [email]
+    );
+
+    if (users.length === 0) {
+      return res.status(401).json({
+        message: 'Email ou mot de passe incorrect.',
+      });
+    }
+
+    const user = users[0];
+
+    // 3. Comparer le mot de passe avec le hash
+    const motDePasseValide = await bcrypt.compare(mot_de_passe, user.mot_de_passe);
+
+    if (!motDePasseValide) {
+      return res.status(401).json({
+        message: 'Email ou mot de passe incorrect.',
+      });
+    }
+
+    // 4. Récupérer les rôles de l'utilisateur
+    const [roles]: any = await pool.query(
+      `SELECT r.nom FROM user_roles ur
+       JOIN roles r ON ur.role_id = r.id
+       WHERE ur.user_id = ?`,
+      [user.id]
+    );
+    const rolesList = roles.map((r: any) => r.nom);
+
+    // 5. Générer le token JWT
+    const token = jwt.sign(
+      { userId: user.id, email: user.email, roles: rolesList },
+      process.env.JWT_SECRET || 'secret_temporaire_a_changer',
+      { expiresIn: '7d' }
+    );
+
+    // 6. Retourner le token + infos utilisateur (sans le mot de passe)
+    return res.status(200).json({
+      message: 'Connexion réussie.',
+      token,
+      user: {
+        id: user.id,
+        nom: user.nom,
+        prenom: user.prenom,
+        email: user.email,
+        roles: rolesList,
+      },
+    });
+
+  } catch (error) {
+    console.error('Erreur login:', error);
+    return res.status(500).json({ message: 'Erreur serveur, veuillez réessayer.' });
+  }
+};
+
+

@@ -4,8 +4,8 @@ import mysql from 'mysql2/promise';
 export const pool = mysql.createPool({
   host: 'localhost',
   user: 'root',
-  password: 'ton_mot_de_passe',
-  database: 'labvision',
+  password: '',
+  database: 'vision',
   waitForConnections: true,
   connectionLimit: 10,
 });

@@ -13,3 +13,11 @@ export const registerSchema = z.object({
 });
 
 export type RegisterInput = z.infer<typeof registerSchema>;
+
+// validators/auth.validator.ts — ajoute ce schéma au fichier existant
+export const loginSchema = z.object({
+  email: z.string().email(),
+  mot_de_passe: z.string().min(1, 'Le mot de passe est requis'),
+});
+
+export type LoginInput = z.infer<typeof loginSchema>;
