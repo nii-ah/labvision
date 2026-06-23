@@ -24,7 +24,7 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => console.log("User disconnected"));
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 httpServer.listen(PORT, () =>
   console.log(`Backend TS sur http://localhost:${PORT}`),
 );
