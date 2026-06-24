@@ -214,9 +214,11 @@ export function LandingPage() {
                 <img src={logoLabVision} alt="Logo" className="w-full h-full object-contain" />
               </div>
               <div>
-                <h1 className="font-bold text-base sm:text-xl lg:text-3xl font-[Noto_sans] text-gray-800 leading-tight">
-                  {/* [RESPONSIVE] taille du titre adaptée */}
-                  FabLab Lab'Vision
+                <h1 className="font-extrabold text-base sm:text-xl lg:text-3xl tracking-tight">
+                <span className="text-slate-800">FabLab </span>
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-500 to-indigo-600">
+                    Lab'Vision
+                </span>
                 </h1>
                 <p className="text-xs sm:text-sm text-gray-500">{t.tagline}</p>
               </div>

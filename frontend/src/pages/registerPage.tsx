@@ -65,7 +65,12 @@ export function RegisterPage() {
           <div className="flex items-center gap-3 mb-4">
             <img src={logoLabVision} alt="FabLab LabVision" className="w-12 h-12" />
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Inscription</h1>
+                <h1 className="text-2xl font-black tracking-tight">
+                    <span className="text-gray-900">Rejoignez</span>{" "}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-purple-600">
+                    Lab'Vision
+                    </span>
+                </h1>
               <p className="text-xs text-gray-500">FabLab LabVision</p>
             </div>
           </div>
@@ -79,17 +84,6 @@ export function RegisterPage() {
           <form onSubmit={handleSubmit} className="space-y-3">
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-medium text-gray-700 mb-1">Prénom</label>
-                <input
-                  type="text"
-                  value={formData.prenom}
-                  onChange={(e) => setFormData({ ...formData, prenom: e.target.value })}
-                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-900 focus:border-transparent"
-                  placeholder="prénom"
-                  required
-                />
-              </div>
-              <div>
                 <label className="block text-xs font-medium text-gray-700 mb-1">Nom</label>
                 <input
                   type="text"
@@ -97,6 +91,17 @@ export function RegisterPage() {
                   onChange={(e) => setFormData({ ...formData, nom: e.target.value })}
                   className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-900 focus:border-transparent"
                   placeholder="nom"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-gray-700 mb-1">Prénom</label>
+                <input
+                  type="text"
+                  value={formData.prenom}
+                  onChange={(e) => setFormData({ ...formData, prenom: e.target.value })}
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-900 focus:border-transparent"
+                  placeholder="prénom"
                   required
                 />
               </div>

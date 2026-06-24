@@ -56,8 +56,13 @@ export function LoginPage() {
           <div className="flex items-center gap-3 mb-4">
             <img src={logoLabVision} alt="FabLab LabVision" className="w-12 h-12" />
             <div>
-              <h1 className="text-xl font-bold text-gray-900">Connexion</h1>
-              <p className="text-xs text-gray-500">FabLab LabVision</p>
+                <h1 className="text-2xl font-black tracking-tight">
+                <span className="text-gray-900">Bienvenue sur</span>{" "}
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-500 to-purple-600">
+                    Lab'Vision
+                </span>
+                </h1>
+                <p className="text-xs text-gray-500">FabLab LabVision</p>
             </div>
           </div>
 
