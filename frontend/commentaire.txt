@@ -1,33 +1,52 @@
-interface du 5 mais :
-    il faut que les element suivant soit responsive:
-        header,
-        logo des partenaire,
-        section femme.
-    modification selon les recomandation de madame la presidente
+TODO
+    Email de verification
+    adhesion LabVision
 
 
-comment faire un push sur main:
-    # Commiter ton travail sur dev
-    git add .
-    git commit -m "ton message"
-    git push origin dev
+l'ordre des travaille a faire:
+    1. Dashboard
+    2. Projets
+    3. Ressources et documentation
+    4. Membres + Adhésion
+    5. Matériels + Réservations
+    6. Événements
+    7. Discussions
+    8. Email de vérification (avant mise en production)
 
-    # Merger vers main
-    git checkout main
-    git merge dev
-    git push origin main  # → Vercel redéploie
-
-    # Revenir sur dev
-    git checkout dev
-
-a faire le soir du 6 mais:
-    - wireframe des different page et leur logique
-    - diagramme relationnelle
-    - copie des formulaires.
-    - diapos
-
-a faire le matin du 7 mais:
-    - analyse
-
-
+    
 compte: soniah@gmail.com Azertyuiop123/
+
+note pour mon livre sue la securiter:
+    les route son protoger grace a protected route coté front.
+    donc  o n'a pas accées au page si on ne c'est pas encore connecter.
+    Le middleware JWT backend est la prochaine priorité logique — sans lui, même si le frontend protège les pages, n'importe qui peut appeler directement tes routes API backend (via Thunder Client ou curl) sans token et obtenir des données. 
+
+    Voici le principe avant le code.
+
+---
+
+## Ce que fait le middleware JWT
+
+    Actuellement, tes routes backend sont **totalement ouvertes**. N'importe qui peut faire un `GET /api/membres` ou `POST /api/projets` sans token — le backend répond sans vérifier qui fait la demande.
+
+    Le middleware va intercepter chaque requête sur les routes protégées et vérifier :
+
+    ```
+    La requête a-t-elle un header Authorization ?
+    ├── NON → 401 (non autorisé)
+    └── OUI → le token est-il valide et non expiré ?
+                ├── NON → 403 (token invalide)
+                └── OUI → laisse passer + injecte les infos user dans la requête
+    ```
+
+    ---
+
+    ## Ce qu'on va créer
+
+    **`src/middlewares/authenticate.ts`** — le middleware qui vérifie le token JWT
+
+    Ensuite on l'appliquera sur les routes qui nécessitent d'être connecté.
+
+    ---
+
+    Tu veux que je te donne le code à écrire ?
