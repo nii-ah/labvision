@@ -1,1 +1,112 @@
 @import "tailwindcss";
+
+@theme {
+  /* ── COULEURS ────────────────────────────────────────── */
+  --color-primary:           #611677;
+  --color-primary-hover:     #4e1260;
+  --color-secondary:         #27a49b;
+  --color-secondary-dark:    #2a7474;
+  --color-neutral:           #7a969f;
+
+  --color-text-main:         #2a2a2a;
+  --color-text-secondary:    #6b7280;
+
+  --color-bg-main:           #FFFFFF;
+  --color-bg-alt:            #F8F9FA;
+  --color-bg-dark:           #2a2a2a;
+
+  --color-border:            #E5E7EB;
+  --color-border-standard:   #7a969f;
+
+  --color-error:             #DC2626;
+  --color-success:           #16a34a;
+
+  /* ── TYPOGRAPHIE ─────────────────────────────────────── */
+  --font-ui:                 'Lato', sans-serif;
+  --font-body:               'Lora Variable', serif;
+
+  /* ── BORDER RADIUS ───────────────────────────────────── */
+  --radius-xs:               4px;
+  --radius-sm:               8px;
+  --radius-md:               12px;
+  --radius-lg:               16px;
+  --radius-xl:               24px;
+  --radius-pill:             9999px;
+
+  /* ── OMBRES ──────────────────────────────────────────── */
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md:   0 4px 12px rgba(0,0,0,0.10);
+  --shadow-lg:   0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* ── IMPORT DES POLICES ──────────────────────────────────── */
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/lora:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+}
+@font-face {
+  font-family: 'Lora Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/lora:vf@latest/latin-wght-italic.woff2) format('woff2-variations');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/lato@latest/latin-300-normal.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/lato@latest/latin-400-normal.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/lato@latest/latin-700-normal.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/lato@latest/latin-900-normal.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 300;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/lato@latest/latin-300-italic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/lato@latest/latin-400-italic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 700;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/lato@latest/latin-700-italic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/lato@latest/latin-900-italic.woff2) format('woff2');
+}

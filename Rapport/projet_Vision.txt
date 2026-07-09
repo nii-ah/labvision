@@ -1,0 +1,274 @@
+RAPPORT DE MI-STAGE 
+
+
+Résumé du projet:
+Le projet: Développement d’une plateforme numérique collaborative et inclusive pour le FabLab Lab’Vision.
+Le contexte: Le fablab existe déjà physiquement. La plateforme est une extension numérique pour toucher un public plus large et pallier le manque de ressources adaptées dans les zones rurales.
+L’objectif : Démocratiser l'accès à l’innovation technologique et aux connaissances scientifiques. en particulier pour les communautés rurales et les femmes en créant un écosystème numérique ouvert et durable.
+
+
+
+Les profils des utilisateurs cible du plateforme:
+
+UTILISATEUR 1 : L'Étudiant(e) en zone urbaine (ex: Antsiranana)
+
+1. Qui est-il/elle?
+Un(e) étudiant(e)  d'une université.
+A accès à internet (peut-être pas 24h/24, mais assez régulièrement via le campus ou un cybercafé).
+A un smartphone ou un ordinateur.
+Parle français et/ou malgache.
+Est motivé(e) mais manque parfois de ressources actualisées.
+
+2. Quels sont ses objectifs ?
+Trouver des cours et des sujets de projet pour ses études.
+Comprendre des concepts techniques complexes (énergies renouvelables, électronique, programmation, etc.).
+Trouver des exemples concrets de projets réalisés par d'autres étudiants pour s'inspirer.
+Rencontrer d'autres étudiants pour travailler en groupe sur des projets.
+Valoriser ses propres projets (les montrer, les partager).
+
+3. Quels sont ses freins/difficultés ?
+Les cours en présentiel sont parfois insuffisants ou trop théoriques.
+Les ressources en ligne (YouTube, forums) sont en anglais ou pas adaptées au contexte local.
+Il/elle ne sait pas par où commencer pour un projet pratique.
+
+4. Comment la plateforme peut-elle l'aider ?
+Une bibliothèque de cours structurés par thème, avec peu être des vidéos en français/malgache.
+Des tutoriels pas-à-pas pour réaliser des projets (ex: "Comment fabriquer un petit panneau solaire").
+Une galerie de projets avec photos et explications, pour s'inspirer.
+Un forum pour poser des questions et obtenir des réponses d'enseignants ou d'autres étudiants.
+Un espace personnel pour publier ses projets et recevoir des feedbacks.
+
+
+
+UTILISATEUR 2 : L'Étudiant(e) en zone rurale
+1. Qui est-il/elle ?
+Un(e) jeune vivant dans une commune rurale éloignée (ex: dans le nord de Madagascar).
+Peut-être inscrit(e) à distance à une université, ou autodidacte.
+Accès à internet très limité (connexion 2G/3G instable, coût élevé).
+Possède un smartphone basique (pas forcément un ordinateur).
+Parle principalement malgache, peut-être pas le français couramment.
+N'a pas accès à un Fablab physique.
+
+2. Quels sont ses objectifs ?
+Apprendre des compétences techniques pour améliorer sa vie ou trouver un emploi (ex: réparer des panneaux solaires, construire un petit système d'irrigation).
+Accéder à des connaissances de base sans avoir à se déplacer en ville.
+S'informer sur les innovations qui pourraient aider sa communauté.
+
+3. Quels sont ses freins/difficultés ?
+La connexion internet : Impossible de regarder des vidéos longues ou de télécharger des gros fichiers.
+La langue : Le français est un obstacle
+Le coût des données : Doit limiter son temps de navigation.
+Le manque de matériel : N'a pas accès aux composants électroniques ou aux outils du Fablab.
+L'isolement : Personne autour de lui/elle pour l'aider en cas de blocage.
+
+4. Comment la plateforme peut-elle l'aider ?
+Version "allégée" du site : Interface simplifiée, sans images lourdes, qui consomme peu de données.
+Contenus en malgache : Tout le contenu doit être disponible en langue locale.
+Supports audio : Des podcasts ou des fichiers audio à télécharger une fois pour les écouter hors ligne.
+Fiches pratiques téléchargeables : Des PDF légers (textes, schémas) qu'il/elle peut consulter sans internet.
+Contenus découpés en petits modules : Pour pouvoir apprendre par étapes, même avec une connexion instable.
+Un annuaire de contacts locaux : Peut-être d'autres personnes dans sa région qui utilisent la plateforme, pour créer des groupes d'entraide.
+
+
+
+UTILISATEUR 3 : L'Enseignant / Chercheur
+1. Qui est-il/elle ?
+Un professeur de l'ESP ou d'une autre université.
+Un chercheur du laboratoire
+Expert dans son domaine (énergies renouvelables, développement durable, etc.).
+A une bonne connexion internet et un ordinateur.
+
+2. Quels sont ses objectifs ?
+Partager ses cours et ses supports pédagogiques avec ses étudiants.
+Mettre en ligne des sujets de projet ou de recherche.
+Valoriser son travail et celui de son laboratoire.
+
+3. Quels sont ses freins/difficultés ?
+Ses cours sont parfois trop académiques et pas assez accessibles pour les étudiants.
+Pas de visibilité internationale pour ses recherches.
+
+4. Comment la plateforme peut-elle l'aider ?
+Une interface simple pour partager des cours ou supports.
+Un profil public pour valoriser ses cours et ses projets.
+
+
+
+UTILISATEUR 4 : Le Maker / Innovateur
+1. Qui est-il/elle ?
+Un passionné de technologie (étudiant, entrepreneur, artisan, ingénieur).
+Utilise régulièrement le Fablab Lab'Vision.
+A un projet personnel ou professionnel en cours.
+Aime expérimenter, bidouiller, créer.
+
+2. Quels sont ses objectifs ?
+Documenter ses projets pour les partager avec la communauté.
+Trouver des collaborateurs (développeurs, designers, etc.) pour ses projets.
+Trouver des ressources techniques (plans, codes sources, fiches techniques).
+S'inspirer des projets des autres.
+Gagner en visibilité pour éventuellement trouver des financements ou des clients.
+
+3. Quels sont ses freins/difficultés ?
+Ses projets sont parfois trop techniques pour être compris par tout le monde.
+Il ne sait pas toujours comment bien documenter son travail.
+Il a du mal à trouver des pièces ou des composants à Madagascar.
+
+4. Comment la plateforme peut-elle l'aider ?
+Un espace "Projets" structuré avec des fiches détaillées (description, matériel utilisé, étapes, photos, vidéos).
+Des templates pour documenter facilement ses projets.
+Une section "Annonces" pour trouver des fournisseurs locaux ou des co-fondeurs.
+Un système de "likes" et de commentaires pour recevoir des retours.
+Un classement ou une mise en avant des meilleurs projets.
+
+
+
+UTILISATEUR 5 : Les Partenaires (ONG, Entreprises, Institutions)
+1. Qui est-il/elle ?
+Une ONG qui travaille dans le développement durable.
+Une entreprise locale ou internationale qui cherche des innovations.
+Une institution (ministère, ambassade) qui finance des projets.
+
+2. Quels sont ses objectifs ?
+Trouver des innovations ou des talents locaux.
+Identifier des projets à financer ou à accompagner.
+Proposer des offres de stage ou d'emploi.
+Suivre les activités du Fablab.
+
+3. Quels sont ses freins/difficultés ?
+Pas de visibilité sur ce qui se fait au Fablab.
+Difficulté à identifier les projets prometteurs.
+Manque de contact direct avec les porteurs de projets.
+
+4. Comment la plateforme peut-elle l'aider ?
+Une section "Partenaires" avec des appels à projets ou des offres.
+Un annuaire des projets avec des filtres (par domaine, par niveau de maturité, etc.).
+Un espace pour publier des offres de stage ou d'emploi.
+Des statistiques sur les activités du Fablab.
+
+
+
+UTILISATEUR 6 : L'Administrateur du Fablab
+1. Qui est-il/elle ?
+La responsable du Fablab (ex: Mme Rasoarinana).
+Une équipe de modérateurs.
+
+2. Quels sont ses objectifs ?
+Gérer les utilisateurs (inscriptions, modération).
+Animer la communauté (publier des actualités, des événements).
+Mesurer l'impact de la plateforme (nombre de visiteurs, projets déposés, etc.).
+Assurer la qualité des contenus publiés.
+
+3. Quels sont ses freins/difficultés ?
+Manque de temps pour modérer et animer.
+Difficulté à mesurer l'efficacité de la plateforme.
+Besoin de former les utilisateurs à utiliser la plateforme.
+
+4. Comment la plateforme peut-elle l'aider ?
+Un tableau de bord administrateur avec des statistiques (utilisateurs actifs, nouveaux projets, etc.).
+Des outils de modération (signaler un contenu, bannir un utilisateur).
+Un système de notification pour être alerté en cas de nouveau contenu ou de signalement.
+Des fonctionnalités pour publier facilement des actualités et des événements.
+
+-----------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
+
+
+ÉTAPE 1 : DÉFINITION DES GRANDES FONCTIONNALITÉS (Backlog priorisé)
+En partant de votre priorité (zones rurales + ressources/projets), j'ai hiérarchisé les fonctionnalités en trois niveaux. Cela vous donnera une vision claire pour les 6 mois.
+
+🔴 Niveau 1 : Indispensable (Livrable obligatoire pour la soutenance)
+Ces fonctionnalités sont le "minimum viable product" (MVP). Elles répondent directement aux besoins des utilisateurs ruraux et aux objectifs principaux.
+
+Fonctionnalité	Description	Pour qui ?
+1. Bibliothèque de Ressources	Un espace pour consulter des cours, tutoriels et fiches pratiques. Avec des filtres (par thème, niveau, format).	Étudiants (urbains & ruraux), Enseignants
+2. Galerie de Projets	Un espace pour visualiser les projets du Fablab. Avec des photos, descriptions et téléchargements de fichiers.	Tous les utilisateurs, Partenaires
+3. Système d'Authentification	Inscription et connexion sécurisée avec différents rôles (Admin, Enseignant, Membre, Visiteur).	Tous
+4. Interface "Allégée"	Un mode ou un thème du site avec très peu d'images et un code optimisé pour les connexions lentes (2G/3G).	Utilisateurs ruraux
+5. Contenus Multilingues	La possibilité d'afficher le texte de la plateforme en Malgache et en Français.	Tous, surtout les ruraux
+6. Dépôt de Projets	Un formulaire simple pour qu'un maker ou un étudiant puisse soumettre son projet (titre, description, images).	Makers, Étudiants
+7. Tableau d'automatiquement: une inventaire des différents matériel, composants et outils disponible chez Lab’Vision. Etudiants et Makers
+8. Calendrier d'evenement: valoriser les activités du FabLab en les affichant sur une Calendrier. Membre, les Partenaires et Etudiants
+
+🟡 Niveau 2 : Très important (À faire dans le temps imparti si possible)
+Ces fonctionnalités apportent une vraie valeur ajoutée et enrichissent l'expérience.
+
+Fonctionnalité	Description	Pour qui ?
+7. Espace de discussion / Forum	Un espace pour poser des questions et échanger.	Tous
+8. Tableau de bord Administrateur	Un espace sécurisé avec des statistiques et des outils de modération.	Administrateur du Fablab
+9. Téléchargement de PDF "légers"	Générer automatiquement une version PDF allégée des tutoriels pour consultation hors-ligne.	Utilisateurs ruraux
+10. Filtres avancés pour les projets	Rechercher un projet par mots-clés, par auteur, par date, etc.	Tous
+
+🟢 Niveau 3 : Optionnel / Exploratoire (À explorer si le temps le permet)
+C'est la partie innovation et "plus-value" du projet.
+
+Fonctionnalité	Description	Pour qui ?
+11. Assistant Numérique (IA)	Un chatbot simple qui répond aux questions fréquentes (ex: "Comment déposer un projet ?").	Tous
+12. Espace Partenaires	Une page dédiée pour les ONG et entreprises avec des formulaires.	Partenaires
+13. Système de badges / Gamification	Récompenser les utilisateurs actifs (ex: badge "Premier projet", "Membre actif").	Tous
+
+
+ÉTAPE 2 : RÉDACTION DES PREMIÈRES USER STORIES (Scénarios d'utilisation)
+Les user stories sont des phrases simples qui décrivent une fonctionnalité du point de vue de l'utilisateur. Cela permet de ne jamais perdre de vue l'utilisateur final. Elles sont essentielles pour construire vos maquettes.
+
+Pour le besoin prioritaire (zones rurales) :
+"En tant qu'étudiant en zone rurale, je veux que le site se charge rapidement avec des images légères, pour ne pas dépenser trop de données mobiles."
+(Fonctionnalité : Interface allégée)
+"En tant qu'apprenant rural, je veux pouvoir lire les tutoriels en malgache et télécharger une version PDF, pour les consulter même quand je n'ai plus de réseau."
+(Fonctionnalité : Contenus multilingues & PDF légers)
+
+Pour le besoin prioritaire (Ressources & Projets) :
+"En tant qu'étudiant, je veux pouvoir rechercher des tutoriels par mots-clés (ex: 'solaire', 'programmation'), pour trouver rapidement ce qui m'intéresse."
+(Fonctionnalité : Bibliothèque de ressources avec moteur de recherche)
+"En tant que Maker, je veux pouvoir déposer un projet en remplissant un simple formulaire"
+(Fonctionnalité : Dépôt de projets)
+"En tant que Partenaire, je veux pouvoir parcourir la galerie de projets et voir les photos, pour évaluer le potentiel des innovations locales."
+(Fonctionnalité : Galerie de projets)
+
+ÉTAPE 3 : ESQUISSE DES PREMIÈRES MAQUETTES (Planche à dessin)
+Maintenant, passons à la partie créative. Avant de faire du code ou des maquettes numériques complexes, on va esquisser à la main (ou avec un outil simple) l'architecture des pages principales.
+Je vous propose de nous concentrer sur 3 pages prioritaires :
+
+Page 1 : La Page d'Accueil (Le point d'entrée)
+   TERMINER
+
+Page 2 : La Bibliothèque de Ressources (Cœur du projet)
+Objectif : Permettre de trouver et consulter des cours/tutoriels.
+
+Éléments à placer :
+
+Menu de filtres (à gauche ou en haut) :
+
+Catégories : "Énergies renouvelables", "Électronique", "Programmation", "Développement durable".
+
+Niveau : "Débutant", "Intermédiaire", "Expert".
+
+Langue : "Français", "Malgache".
+
+Format : "Vidéo", "PDF", "Audio".
+
+Grille des résultats : Afficher les ressources sous forme de cartes (titre, image, un extrait, et une icône pour le format).
+
+Bouton "Télécharger en PDF" sur chaque ressource.
+
+Page 3 : Le Dépôt d'un Projet (Pour les Makers)
+Objectif : Rendre le processus simple et intuitif.
+
+Éléments à placer :
+
+Formulaire :
+
+Titre du projet.
+
+Description (zone de texte).
+
+Catégorie (menu déroulant).
+
+Téléchargement d'une image (1 seule, pour rester léger).
+
+Téléchargement d'un fichier (optionnel).
+
+Bouton "Publier le projet".
+
+Un message de confirmation après publication.
+
+
+

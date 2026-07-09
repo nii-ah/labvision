@@ -191,6 +191,7 @@ const partenaires = [
   { id: 3, sigle: "DA", nom: "Diasporeines Africa", couleur: "bg-purple-100 text-purple-800" },
 ];
 
+
 // ─── Composant principal ──────────────────────────────────────────────────────
 export function LandingPage() {
   const [lang, setLang] = useState("fr");

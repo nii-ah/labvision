@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import {  ArrowLeft, Eye, EyeOff } from "lucide-react";
 import logoLabVision from "../assets/icons/logo_labVision.png";
-import { registerUser } from "../services/auth.service";
+import { registerUser } from "../../services/auth.service";
 
 export function RegisterPage() {
   const navigate = useNavigate();
@@ -67,7 +67,7 @@ export function RegisterPage() {
             <div>
                 <h1 className="text-2xl font-black tracking-tight">
                     <span className="text-gray-900">Rejoignez</span>{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-purple-600">
+                    <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-500 to-purple-600">
                     Lab'Vision
                     </span>
                 </h1>
