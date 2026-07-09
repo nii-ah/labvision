@@ -14,7 +14,7 @@ l'ordre des travaille a faire:
     8. Email de vérification (avant mise en production)
 
     
-compte: soniah@gmail.com Azertyuiop123/
+compte: soniah@gmail.com Azertyuiop123/  test@gmail.com Test123/
 
 note pour mon livre sue la securiter:
     les route son protoger grace a protected route coté front.

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import {  ArrowLeft, Eye, EyeOff } from "lucide-react";
-import logoLabVision from "../assets/icons/logo_labVision.png";
+import logoLabVision from "../../assets/icons/logo_labVision.png";
 import { registerUser } from "../../services/auth.service";
 
 export function RegisterPage() {

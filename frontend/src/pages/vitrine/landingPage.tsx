@@ -6,16 +6,16 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logoLabVision from "../assets/icons/logo_labVision.png";
-import femme from "../assets/facebook/femme.jpg";
-import hero from "../assets/facebook/hero1.jpg"
-import logoESP from "../assets/facebook/logoESP.jpg"
-import logoUNA from "../assets/facebook/logoUNA.jpg"
-import logoDA from "../assets/facebook/image.png"
-import projet1 from "../assets/facebook/projet1.jpg"
-import projet2 from "../assets/facebook/projet2.jpg"
-import projet3 from "../assets/facebook/projet3.jpg"
-import projet4 from "../assets/facebook/projet4.jpg"
+import logoLabVision from "../../assets/icons/logo_labVision.png";
+import femme from "../../assets/facebook/femme.jpg";
+import hero from "../../assets/facebook/hero1.jpg"
+import logoESP from "../../assets/facebook/logoESP.jpg"
+import logoUNA from "../../assets/facebook/logoUNA.jpg"
+import logoDA from "../../assets/facebook/image.png"
+import projet1 from "../../assets/facebook/projet1.jpg"
+import projet2 from "../../assets/facebook/projet2.jpg"
+import projet3 from "../../assets/facebook/projet3.jpg"
+import projet4 from "../../assets/facebook/projet4.jpg"
 import {
   MessageSquare,
   Share2,
