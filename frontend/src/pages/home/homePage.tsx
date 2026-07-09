@@ -1,105 +1,286 @@
-import logoLabVision from "../../assets/icons/logo_labVision.png";
-import { Mail, MapPin, Globe} from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import { Link, useNavigate } from "react-router-dom";
+import { Globe, LogOut, FileText, FolderOpen, Users, Home, BookOpen } from "lucide-react";
+import logoLabVision from "../../assets/icons/logo_labVision.png";
 
 const partenaires = [
-  { id: 1, sigle: "ESP", nom: "École Polytechnique d'Antsiranana", couleur: "bg-blue-100 text-blue-800" },
-  { id: 2, sigle: "UNA", nom: "Université d'Antsiranana", couleur: "bg-green-100 text-green-800" },
-  { id: 3, sigle: "DA", nom: "Diasporeines Africa", couleur: "bg-purple-100 text-purple-800" },
+  { id: 1, nom: "École Polytechnique d'Antsiranana" },
+  { id: 2, nom: "Université d'Antsiranana" },
+  { id: 3, nom: "Diasporeines Africa" },
 ];
 
-export function HomePage () {
-    const navigate = useNavigate();
-    const [lang, setLang] = useState("fr");
-    const toggleLang = () => setLang((prev) => (prev === "fr" ? "mg" : "fr"));
-    
+// Données statiques temporaires — à remplacer par des appels API plus tard
+const projetsRecents = [
+  {
+    id: 1,
+    titre: "Séchoir intelligent",
+    description: "Un séchoir conçu pour les aliments coupés en fines tranches, permettant un séchage plus rapide et homogène.",
+    categorie: "Développement durable",
+    date: "15 juin 2026",
+  },
+  {
+    id: 2,
+    titre: "Éolienne verticale",
+    description: "Une éolienne à axe vertical conçue pour produire de l'énergie renouvelable, même avec des vents faibles.",
+    categorie: "Énergie renouvelable",
+    date: "10 juin 2026",
+  },
+  {
+    id: 3,
+    titre: "Système d'irrigation automatique",
+    description: "Un système d'irrigation connecté permettant de gérer l'arrosage à distance via une application mobile.",
+    categorie: "Agriculture",
+    date: "5 juin 2026",
+  },
+];
 
+const ressourcesRecentes = [
+  {
+    id: 1,
+    titre: "Introduction aux énergies renouvelables",
+    description: "Guide complet sur les différentes sources d'énergie renouvelable et leur application à Madagascar.",
+    type: "pdf",
+    date: "20 juin 2026",
+  },
+  {
+    id: 2,
+    titre: "Tutoriel impression 3D",
+    description: "Apprenez les bases de l'impression 3D avec les équipements disponibles au FabLab Lab'Vision.",
+    type: "video",
+    date: "18 juin 2026",
+  },
+  {
+    id: 3,
+    titre: "Introduction à l'électronique",
+    description: "Podcast en malagasy pour découvrir les bases de l'électronique et des composants numériques.",
+    type: "audio",
+    date: "12 juin 2026",
+  },
+];
 
-    return (
-        <div className="min-h-screen bg-white">
-            <header className="border-b border-gray-200 bg-white sticky top-0 z-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2">
-                <div className="flex items-center justify-between">
+/*
+const typeIcons: Record<string, JSX.Element> = {
+  pdf:   <FileText className="w-4 h-4" />,
+  video: <FolderOpen className="w-4 h-4" />,
+  audio: <BookOpen className="w-4 h-4" />,
+}; */
 
-                    {/* Logo + Nom */}
-                    <div className="flex items-center gap-2">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 flex items-center justify-center shrink-0">
-                        {/* [RESPONSIVE] logo plus petit sur mobile */}
-                        <img src={logoLabVision} alt="Logo" className="w-full h-full object-contain" />
-                    </div>
-                    <div>
-                        <h1 className="font-extrabold text-base sm:text-xl lg:text-3xl tracking-tight">
-                        <span className="text-slate-800">FabLab </span>
-                        <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-500 to-indigo-600">
-                            Lab'Vision
-                        </span>
-                        </h1>
-                    </div>
-                    </div>
-                    <div>
-                        <button
-                        onClick={toggleLang}
-                        className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-gray-600 hover:bg-indigo-50 rounded-lg transition border border-gray-200">
-                        <Globe className="w-4 h-4" />
-                        {lang === "fr" ? "Malagasy" : "Français"}
-                     </button>
-                    </div>
-        
-                </div>
-                </div>
-            </header>
+const typeLabels: Record<string, string> = {
+  pdf:   "PDF",
+  video: "Vidéo",
+  audio: "Audio",
+};
 
-        
+export function HomePage() {
+  const navigate = useNavigate();
+  const [lang, setLang] = useState("fr");
+  const toggleLang = () => setLang((prev) => (prev === "fr" ? "mg" : "fr"));
 
-            {/* ── FOOTER ──────────────────────────────────────────────────────────── */}
-            <footer className="bg-gray-900 text-white py-10 sm:py-12">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                {/* [RESPONSIVE] 1 col mobile → 3 col desktop */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8">
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
 
-                    {/* Présentation */}
-                    <div>
-                    <div className="flex items-center gap-3 mb-4">
-                        <img src={logoLabVision} alt="logoLabVision" className="w-12 h-12 object-contain" />
-                        <span className="font-semibold">FabLab Lab'Vision</span>
-                    </div>
-                    <p className="text-sm text-gray-400">Laboratoire d'innovation collaborative pour la création de projets technologiques durables.</p>
-                    </div>
+  // Récupérer le nom de l'utilisateur depuis localStorage
+  const userRaw = localStorage.getItem("user");
+  const user = userRaw ? JSON.parse(userRaw) : null;
 
-                    {/* Contact */}
-                    <div>
-                    <h4 className="font-semibold mb-4">Contact</h4>
-                    <ul className="space-y-3 text-sm text-gray-400">
-                        <li className="flex items-center gap-2">
-                        <Mail className="w-4 h-4 shrink-0" />
-                        contact@labvision.mg
-                        </li>
-                        <li className="flex items-start gap-2">
-                        <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
-                        ESP, Antsiranana, Madagascar
-                        </li>
-                    </ul>
-                    </div>
+  return (
+    <div className="min-h-screen bg-white">
 
-                    {/* Partenaires */}
-                    <div>
-                    <h4 className="font-semibold mb-4">partenaires</h4>
-                    <ul className="space-y-2 text-sm text-gray-400">
-                        {partenaires.map((p) => (
-                        <li key={p.id}>{p.nom}</li>
-                        ))}
-                    </ul>
-                    </div>
+      {/* ── HEADER ─────────────────────────────────────────── */}
+      <header className="border-b border-border bg-white sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3">
+          <div className="flex items-center justify-between gap-4">
 
-                </div>
-
-            <div className="pt-6 sm:pt-8 border-t border-gray-800 text-center text-xs sm:text-sm text-gray-400">
-                <p>© 2026 FabLab Lab'Vision — ESP Antsiranana. Tous droits réservés.</p>
+            {/* Logo */}
+            <div className="flex items-center gap-2 shrink-0">
+              <img src={logoLabVision} alt="Logo Lab'Vision" className="w-10 h-10 object-contain" />
+              <span className="hidden sm:block  font-bold text-(--color-text-main) text-lg">
+                FabLab <span className="gradient-text">Lab'Vision</span>
+              </span>
             </div>
+
+            {/* Navigation */}
+            <nav className="hidden md:flex items-center gap-1">
+              {[
+                { label: "Accueil", path: "/home", icon: <Home className="w-4 h-4" /> },
+                { label: "Projets", path: "/projets", icon: <FolderOpen className="w-4 h-4" /> },
+                { label: "Ressources", path: "/ressources", icon: <FileText className="w-4 h-4" /> },
+                { label: "Lab'Vision", path: "/labvision", icon: <Users className="w-4 h-4" /> },
+              ].map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className="flex items-center gap-2 px-3 py-2 text-label text-text-secondary hover:text-(--color-primary) hover:bg-bg-alt rounded-sm transition"
+                >
+                  {item.icon}
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Actions droite */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={toggleLang}
+                className="flex items-center gap-1.5 px-3 py-2 text-label text-text-secondary hover:bg-bg-alt rounded-sm transition border border-border"
+              >
+                <Globe className="w-4 h-4" />
+                <span className="hidden sm:block">{lang === "fr" ? "Malagasy" : "Français"}</span>
+              </button>
+
+              {user && (
+                <div className="flex items-center">
+                  <div className="w-8 h-8 rounded-full bg-(--color-primary) flex items-center justify-center text-white text-sm font-bold shrink-0">
+                    {user.prenom?.[0]}{user.nom?.[0]}
+                  </div>
                 </div>
-            </footer>
-       </div>
-    )
+              )}
+            </div>
+
+          </div>
+        </div>
+      </header>
+
+      {/* ── SECTION PRÉSENTATION LAB'VISION ────────────────── */}
+      <section className="section-dark">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="max-w-3xl">
+            <span className="badge-secondary mb-4 inline-flex">FabLab Lab'Vision</span>
+            <h1 className="heading-1 text-white mb-4">
+              Bienvenue{user ? `, ${user.prenom}` : ""} 👋
+            </h1>
+            <p className="text-body text-gray-300 mb-8">
+              Lab'Vision est un espace collaboratif et inclusif dédié à l'innovation technologique, 
+              aux énergies renouvelables et au développement durable. Ouvert aux étudiants, 
+              chercheurs et makers de Madagascar, il valorise les savoirs locaux et favorise 
+              le partage de connaissances pour un impact durable.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link to="/projets" className="btn-primary-lg">
+                <FolderOpen className="w-5 h-5" />
+                Voir les projets
+              </Link>
+              <Link to="/ressources" className="btn-secondary">
+                <FileText className="w-5 h-5" />
+                Parcourir les ressources
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION PROJETS RÉCENTS ────────────────────────── */}
+      <section className="section-light">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="heading-2">Projets récents</h2>
+              <p className="text-body-sm mt-1">Les dernières réalisations de la communauté Lab'Vision</p>
+            </div>
+            <Link to="/projets" className="btn-secondary">
+              Voir tout
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projetsRecents.map((projet) => (
+              <div
+                key={projet.id}
+                className="card hover:shadow-(--shadow-md) transition cursor-pointer"
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <span className="badge-primary">{projet.categorie}</span>
+                  <span className="text-caption">{projet.date}</span>
+                </div>
+                <h3 className="heading-3 mb-2">{projet.titre}</h3>
+                <p className="text-body-sm">{projet.description}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── SECTION RESSOURCES RÉCENTES ────────────────────── */}
+      <section className="section-alt">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="heading-2">Ressources récentes</h2>
+              <p className="text-body-sm mt-1">Contenus pédagogiques accessibles à tous les membres</p>
+            </div>
+            <Link to="/ressources" className="btn-secondary">
+              Voir tout
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {ressourcesRecentes.map((ressource) => (
+              <div
+                key={ressource.id}
+                className="card hover:shadow-(--shadow-md) transition cursor-pointer"
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <span className="badge-secondary flex items-center gap-1">
+{/*                    {typeIcons[ressource.type]}
+ */}                    {typeLabels[ressource.type]}
+                  </span>
+                  <span className="text-caption">{ressource.date}</span>
+                </div>
+                <h3 className="heading-3 mb-2">{ressource.titre}</h3>
+                <p className="text-body-sm">{ressource.description}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── FOOTER ─────────────────────────────────────────── */}
+      <footer className="section-dark">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8">
+
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <img src={logoLabVision} alt="Logo" className="w-10 h-10 object-contain" />
+                <span className="text-label text-white">FabLab Lab'Vision</span>
+              </div>
+              <p className="text-body-sm text-gray-400">
+                Laboratoire d'innovation collaborative pour la création de projets technologiques durables.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-label text-white mb-4">Contact</h4>
+              <ul className="space-y-2 text-body-sm text-gray-400">
+                <li>contact@labvision.mg</li>
+                <li>ESP, Antsiranana, Madagascar</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-label text-white mb-4">Partenaires</h4>
+              <ul className="space-y-2 text-body-sm text-gray-400">
+                {partenaires.map((p) => (
+                  <li key={p.id}>{p.nom}</li>
+                ))}
+              </ul>
+            </div>
+
+          </div>
+
+          <div className="pt-6 border-t border-white/10 text-center text-caption text-gray-500">
+            © 2026 FabLab Lab'Vision — ESP Antsiranana. Tous droits réservés.
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  );
 }
