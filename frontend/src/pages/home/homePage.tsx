@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Globe, LogOut, FileText, FolderOpen, Users, Home, BookOpen } from "lucide-react";
+import { Globe, FileText, FolderOpen, Users, Home} from "lucide-react";
 import logoLabVision from "../../assets/icons/logo_labVision.png";
 
 const partenaires = [
@@ -103,7 +103,7 @@ export function HomePage() {
             </div>
 
             {/* Navigation */}
-            <nav className="hidden md:flex items-center gap-1">
+            <nav className="hidden md:flex items-center gap-3">
               {[
                 { label: "Accueil", path: "/home", icon: <Home className="w-4 h-4" /> },
                 { label: "Projets", path: "/projets", icon: <FolderOpen className="w-4 h-4" /> },
@@ -113,7 +113,7 @@ export function HomePage() {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="flex items-center gap-2 px-3 py-2 text-label text-text-secondary hover:text-(--color-primary) hover:bg-bg-alt rounded-sm transition"
+                  className="flex items-center gap-2 px-3 py-2 text-label border border-border text-text-secondary hover:text-(--color-primary) hover:bg-bg-alt rounded-sm transition"
                 >
                   {item.icon}
                   {item.label}
@@ -145,14 +145,13 @@ export function HomePage() {
       </header>
 
       {/* ── SECTION PRÉSENTATION LAB'VISION ────────────────── */}
-      <section className="section-dark">
+      <section className="section-light border-b border-border shadow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-3xl">
-            <span className="badge-secondary mb-4 inline-flex">FabLab Lab'Vision</span>
-            <h1 className="heading-1 text-white mb-4">
-              Bienvenue{user ? `, ${user.prenom}` : ""} 👋
+            <h1 className="heading-1 mb-4">
+              Bienvenue dans la plateforme de Lab'Vision
             </h1>
-            <p className="text-body text-gray-300 mb-8">
+            <p className="text-body mb-8 ">
               Lab'Vision est un espace collaboratif et inclusif dédié à l'innovation technologique, 
               aux énergies renouvelables et au développement durable. Ouvert aux étudiants, 
               chercheurs et makers de Madagascar, il valorise les savoirs locaux et favorise 
@@ -194,7 +193,7 @@ export function HomePage() {
               >
                 <div className="flex items-start justify-between mb-3">
                   <span className="badge-primary">{projet.categorie}</span>
-                  <span className="text-caption">{projet.date}</span>
+                  <span className="text-body-sm">{projet.date}</span>
                 </div>
                 <h3 className="heading-3 mb-2">{projet.titre}</h3>
                 <p className="text-body-sm">{projet.description}</p>
@@ -206,6 +205,7 @@ export function HomePage() {
       </section>
 
       {/* ── SECTION RESSOURCES RÉCENTES ────────────────────── */}
+      {/*
       <section className="section-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
@@ -227,8 +227,8 @@ export function HomePage() {
               >
                 <div className="flex items-start justify-between mb-3">
                   <span className="badge-secondary flex items-center gap-1">
-{/*                    {typeIcons[ressource.type]}
- */}                    {typeLabels[ressource.type]}
+                     {typeIcons[ressource.type]}
+                     {typeLabels[ressource.type]}
                   </span>
                   <span className="text-caption">{ressource.date}</span>
                 </div>
@@ -239,7 +239,7 @@ export function HomePage() {
           </div>
 
         </div>
-      </section>
+      </section> */}
 
       {/* ── FOOTER ─────────────────────────────────────────── */}
       <footer className="section-dark">

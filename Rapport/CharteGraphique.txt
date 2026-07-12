@@ -1,0 +1,273 @@
+charte graphique
+================================================================
+CHARTE GRAPHIQUE — LAB'VISION — MODE CLAIR
+================================================================
+ 
+COULEURS (source: coolors)
+----------------------------------------------------------------
+Primaire          #611677   Boutons principaux, liens actifs, accents forts
+Primaire hover    #4e1260   Bouton au survol
+Secondaire        #27a49b   Badges, tags, icônes, éléments secondaires
+Secondaire foncé  #2a7474   Variante sombre du teal, sections spéciales
+Neutre            #7a969f   Bordures, placeholders, textes tertiaires
+Texte principal   #2a2a2a   Titres, corps de texte
+Texte secondaire  #6b7280   Sous-titres, descriptions
+Fond principal    #FFFFFF   Fond des pages et cartes
+Fond alterné      #F8F9FA   Sections alternées, fond des inputs
+Fond sombre       #2a2a2a   Hero, footer, sections d'impact
+Dégradé signature #611677 → #27a49b   Hero, bannières
+Erreur            #DC2626   Messages d'erreur
+Succès            #16a34a   Messages de succès
+Bordure           #E5E7EB   Bordures de cartes et inputs
+================================================================
+ 
+ 
+================================================================
+TYPOGRAPHIE — LAB'VISION
+================================================================
+ 
+POLICES
+----------------------------------------------------------------
+Interface / Titres    Lato (300, 400, 700, 900)
+Corps long            poppins (300, 400, 700, 900)
+ 
+HIÉRARCHIE DES TAILLES
+----------------------------------------------------------------
+                    Taille   Graisse   Police   Usage
+----------------------------------------------------------------
+H1 Titre de page    36px     900       Lato     Titre hero, page principale
+H2 Titre section    28px     700       Lato     Titre de chaque grande section
+H3 Titre carte      20px     700       Lato     Titre de carte, modal, sidebar
+H4 Sous-titre       16px     700       Lato     Sous-section, groupe de champs
+Corps principal     15px     400       Lora     Descriptions, paragraphes
+Corps petit         13px     400       Lora     Notes, aide contextuelle
+Label / UI          14px     700       Lato     Labels de formulaire, navigation
+Bouton              14px     700       Lato     Texte des boutons
+Badge / Tag         12px     700       Lato     Badges, statuts, catégories
+Caption             12px     300       Lato     Métadonnées, dates, auteurs
+================================================================
+ 
+================================================================
+BORDURES ET FORMES — LAB'VISION
+================================================================
+ 
+BORDER-RADIUS
+----------------------------------------------------------------
+Aucun arrondi      0px      Séparateurs, dividers
+Très petit         4px      Badges, tags, petits éléments
+Petit              8px      Inputs, selects, petits boutons
+Moyen              12px     Boutons standard, tooltips
+Grand              16px     Cartes, modals, dropdowns
+Très grand         24px     Cartes mises en avant, sections spéciales
+Pill               9999px   Boutons pill, avatars, loaders
+Cercle             50%      Avatars ronds, icônes rondes
+================================================================
+ 
+BORDURES
+----------------------------------------------------------------
+// Deux niveaux de bordure selon la visibilité souhaitée :
+// - Discrète pour les éléments de structure (cartes, séparateurs)
+// - Standard pour les éléments interactifs (inputs, selects)
+ 
+Épaisseur standard    1px       Cartes, inputs, dividers
+Épaisseur focus       2px       Input en focus, élément sélectionné
+ 
+Bordure discrète      #E5E7EB   Cartes, dividers, séparateurs
+                                // Très légère, quasi invisible — pour la structure
+Bordure standard      #7a969f   Inputs au repos, éléments interactifs
+                                // Plus visible — signale que l'élément est cliquable
+Bordure focus         #611677   Input en focus (primaire)
+                                // Couleur primaire — indique l'élément actif
+Bordure erreur        #DC2626   État d'erreur
+Bordure succès        #16a34a   État de succès
+================================================================
+ 
+OMBRES
+----------------------------------------------------------------
+Aucune          box-shadow: none                    Éléments plats, fond coloré
+Légère          0 1px 3px rgba(0,0,0,0.08)          Cartes au repos
+Moyenne         0 4px 12px rgba(0,0,0,0.10)         Cartes au hover, dropdowns
+Forte           0 8px 24px rgba(0,0,0,0.12)         Modals, popovers
+================================================================
+ 
+ 
+================================================================
+COMPOSANTS DE BASE — LAB'VISION
+================================================================
+ 
+BOUTONS
+----------------------------------------------------------------
+// Tous les boutons : Lato 14px 700, border-radius 12px
+ 
+Primaire
+  Fond          #611677
+  Texte         #FFFFFF
+  Hover fond    #4e1260
+  Border        aucune
+  Usage         Action principale (S'inscrire, Enregistrer, Confirmer)
+ 
+Secondaire
+  Fond          transparent
+  Texte         #611677
+  Border        1px #611677
+  Hover fond    #F8F9FA
+  Usage         Action secondaire (Annuler, Retour, Voir plus)
+ 
+Teal (accent)
+  Fond          #27a49b
+  Texte         #FFFFFF
+  Hover fond    #2a7474
+  Border        aucune
+  Usage         Actions liées aux ressources, formations, badges
+ 
+Danger
+  Fond          #DC2626
+  Texte         #FFFFFF
+  Hover fond    #b91c1c
+  Border        aucune
+  Usage         Supprimer, Refuser, Quitter
+ 
+Désactivé
+  Fond          #E5E7EB
+  Texte         #7a969f
+  Hover         aucun
+  Cursor        not-allowed
+  Usage         Action non disponible
+ 
+----------------------------------------------------------------
+TAILLES DE BOUTON
+----------------------------------------------------------------
+Grand     px-6  py-3   14px   Actions hero, CTA principal
+Standard  px-4  py-2   14px   Usage général
+Petit     px-3  py-1.5 12px   Actions dans les cartes, tableaux
+================================================================
+ 
+================================================================
+INPUTS ET FORMULAIRES
+================================================================
+ 
+// Tous les inputs : Lato 14px 400, border-radius 8px
+ 
+État normal
+  Fond          #F8F9FA
+  Texte         #2a2a2a
+  Border        1px #7a969f
+  Placeholder   #7a969f
+ 
+État focus
+  Fond          #FFFFFF
+  Border        2px #611677
+  Outline       aucun (ring Tailwind désactivé)
+ 
+État erreur
+  Border        2px #DC2626
+  Texte aide    #DC2626  12px  Lato  400
+ 
+État succès
+  Border        2px #16a34a
+ 
+État désactivé
+  Fond          #E5E7EB
+  Texte         #7a969f
+  Cursor        not-allowed
+ 
+// Label : Lato 14px 700 #2a2a2a — toujours au-dessus de l'input
+// Message d'aide : Lato 12px 400 #6b7280 — sous l'input
+// Message d'erreur : Lato 12px 400 #DC2626 — sous l'input
+================================================================
+ 
+================================================================
+CARTES
+================================================================
+ 
+Carte standard
+  Fond          #FFFFFF
+  Border        1px #E5E7EB
+  Border-radius 16px
+  Ombre repos   0 1px 3px rgba(0,0,0,0.08)
+  Ombre hover   0 4px 12px rgba(0,0,0,0.10)
+  Padding       24px
+ 
+Carte mise en avant
+  Fond          #FFFFFF
+  Border        2px #611677
+  Border-radius 24px
+  Ombre         0 8px 24px rgba(97,22,119,0.12)
+  // Ombre teintée avec la couleur primaire pour plus de cohérence
+  Padding       32px
+ 
+Carte sombre
+  Fond          #2a2a2a
+  Texte         #FFFFFF
+  Border        1px rgba(255,255,255,0.10)
+  Border-radius 16px
+  // Utilisée dans les sections hero, footer, ressources
+================================================================
+ 
+================================================================
+BADGES ET TAGS
+================================================================
+ 
+// Tous les badges : Lato 12px 700, border-radius 4px, padding px-3 py-1
+ 
+Primaire (violet)
+  Fond          rgba(97,22,119,0.10)
+  Texte         #611677
+ 
+Secondaire (teal)
+  Fond          rgba(39,164,155,0.10)
+  Texte         #27a49b
+ 
+Neutre (gris)
+  Fond          #F8F9FA
+  Texte         #6b7280
+  Border        1px #E5E7EB
+ 
+Succès
+  Fond          rgba(22,163,74,0.10)
+  Texte         #16a34a
+ 
+Danger
+  Fond          rgba(220,38,38,0.10)
+  Texte         #DC2626
+ 
+// Note : fonds en rgba avec opacité 10% pour rester légers
+// et cohérents avec le mode clair
+================================================================
+ 
+================================================================
+ICONOGRAPHIE — LAB'VISION
+================================================================
+ 
+LIBRAIRIE
+----------------------------------------------------------------
+Librairie       lucide-react
+Style           Outline (par défaut dans lucide)
+// Ne pas mélanger avec d'autres librairies d'icônes
+ 
+TAILLES STANDARD
+----------------------------------------------------------------
+Très petite     12px   w-3 h-3   Dans les badges, captions
+Petite          16px   w-4 h-4   Dans les boutons, labels, inputs
+Standard        20px   w-5 h-5   Navigation, cartes, listes
+Grande          24px   w-6 h-6   Sections, titres de page
+Très grande     32px   w-8 h-8   Icônes décoratives, empty states
+ 
+COULEURS DES ICÔNES
+----------------------------------------------------------------
+Icône primaire        #611677   Action principale, lien actif
+Icône secondaire      #27a49b   Accent, information
+Icône neutre          #7a969f   Icônes de support, placeholders
+Icône sur fond sombre #FFFFFF   Header sombre, footer, hero
+Icône erreur          #DC2626   Alertes, validations
+Icône succès          #16a34a   Confirmations
+ 
+RÈGLES D'UTILISATION
+----------------------------------------------------------------
+// 1. Toujours accompagner une icône d'un label texte
+//    sauf si l'icône est universellement reconnue (ex: X pour fermer)
+// 2. Aligner verticalement avec le texte (items-center)
+// 3. Gap standard entre icône et texte : 8px (gap-2)
+// 4. Ne jamais redimensionner une icône avec du CSS custom —
+//    utiliser uniquement les classes w-* h-* de Tailwind
+================================================================

@@ -14,7 +14,7 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
       {/* Routes protégées — à compléter au fur et à mesure */}
       <Route
-        path="/dashboard"
+        path="/home"
         element={
           <ProtectedRoute>
             <HomePage/>
