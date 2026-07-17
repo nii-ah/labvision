@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Globe, FileText, FolderOpen, Users, Home} from "lucide-react";
 import logoLabVision from "../../assets/icons/logo_labVision.png";
 
@@ -34,7 +34,7 @@ const projetsRecents = [
   },
 ];
 
-const ressourcesRecentes = [
+/*const ressourcesRecentes = [
   {
     id: 1,
     titre: "Introduction aux énergies renouvelables",
@@ -56,7 +56,7 @@ const ressourcesRecentes = [
     type: "audio",
     date: "12 juin 2026",
   },
-];
+]; */
 
 /*
 const typeIcons: Record<string, JSX.Element> = {
@@ -65,22 +65,22 @@ const typeIcons: Record<string, JSX.Element> = {
   audio: <BookOpen className="w-4 h-4" />,
 }; */
 
-const typeLabels: Record<string, string> = {
+/**const typeLabels: Record<string, string> = {
   pdf:   "PDF",
   video: "Vidéo",
   audio: "Audio",
 };
-
+ */
 export function HomePage() {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const [lang, setLang] = useState("fr");
   const toggleLang = () => setLang((prev) => (prev === "fr" ? "mg" : "fr"));
 
-  const handleLogout = () => {
+  /*const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     navigate("/login");
-  };
+  }; */
 
   // Récupérer le nom de l'utilisateur depuis localStorage
   const userRaw = localStorage.getItem("user");
@@ -97,7 +97,7 @@ export function HomePage() {
             {/* Logo */}
             <div className="flex items-center gap-2 shrink-0">
               <img src={logoLabVision} alt="Logo Lab'Vision" className="w-10 h-10 object-contain" />
-              <span className="hidden sm:block  font-bold text-(--color-text-main) text-lg">
+              <span className="hidden sm:block  font-bold text-text-main text-lg">
                 FabLab <span className="gradient-text">Lab'Vision</span>
               </span>
             </div>
