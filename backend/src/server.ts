@@ -7,7 +7,8 @@ import { createServer } from "http";
 import cors from "cors";
 import { Server } from "socket.io";
 import authRoutes from "./routes/auth.routes";
-
+import domaineRouter from './routes/domaine.routes';
+import ressourceRoutes from './routes/resource.routes';
 
 const app = express();
 const httpServer = createServer(app);
@@ -30,3 +31,9 @@ const PORT = process.env.PORT || 5000;
 httpServer.listen(PORT, () =>
   console.log(`Backend TS sur http://localhost:${PORT}`),
 );
+
+// Route domaine
+app.use('/api', domaineRouter);
+
+// Route liste de tous les ressources
+app.use('/api', ressourceRoutes);

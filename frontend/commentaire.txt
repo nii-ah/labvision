@@ -50,3 +50,6 @@ note pour mon livre sue la securiter:
     ---
 
     Tu veux que je te donne le code à écrire ?
+
+
+    logique metier du ressoure et projet est deja terminer mais il faut tester
