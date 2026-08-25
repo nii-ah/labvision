@@ -97,7 +97,7 @@ export function HomePage() {
             {/* Logo */}
             <div className="flex items-center gap-2 shrink-0">
               <img src={logoLabVision} alt="Logo Lab'Vision" className="w-10 h-10 object-contain" />
-              <span className="hidden sm:block  font-bold text-(--color-text-main) text-lg">
+              <span className="hidden sm:block  font-bold text-text-main text-lg">
                 FabLab <span className="gradient-text">Lab'Vision</span>
               </span>
             </div>

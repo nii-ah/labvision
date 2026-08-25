@@ -28,7 +28,7 @@ export function LoginPage() {
       localStorage.setItem("user", JSON.stringify(data.user));
 
       console.log("Connexion réussi.");
-      navigate("/dashboard");
+      navigate("/home");
     } catch (err: any) {
       const data = err.response?.data;
 

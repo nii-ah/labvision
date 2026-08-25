@@ -5,6 +5,8 @@ import { LoginPage } from "./pages/vitrine/loginPage";
 import { RegisterPage } from "./pages/vitrine/registerPage";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { HomePage } from "./pages/home/homePage";
+import { RessourceListPage } from "./pages/ressources/RessourceListPage";
+import { RessourceDetailPage } from "./pages/ressources/RessourceDetailPage";
 
 function App() {
   return (
@@ -13,14 +15,24 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       {/* Routes protégées — à compléter au fur et à mesure */}
-      <Route
-        path="/home"
-        element={
+      <Route path="/home" element={
           <ProtectedRoute>
             <HomePage/>
           </ProtectedRoute>
         }
       />
+      <Route path="/ressources" element={
+            <ProtectedRoute>
+                <RessourceListPage />
+            </ProtectedRoute>
+        } 
+       />
+       <Route path="/ressources/:id" element={
+            <ProtectedRoute>
+                <RessourceDetailPage />
+            </ProtectedRoute>
+        } 
+       />
     </Routes>
   );
 }
