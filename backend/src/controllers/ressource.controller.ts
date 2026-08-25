@@ -2,7 +2,7 @@
 import { Response } from 'express';
 import { pool } from '../db';
 import { AuthRequest } from '../middlewares/authenticate';
-import { createRessourceSchema } from '../Validators/ressource.validator';
+import { createRessourceSchema, updateRessourceSchema } from '../Validators/ressource.validator';
 
 
 export const createRessource = async (req: AuthRequest, res: Response) => {
@@ -159,3 +159,61 @@ export const getRessourceById = async (req: AuthRequest, res: Response) => {
 };
 
 
+export const updateRessource = async (req: AuthRequest, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const parsed = updateRessourceSchema.safeParse(req.body);
+    if (!parsed.success) {
+      return res.status(400).json({
+        message: 'Données invalides',
+        errors: parsed.error.flatten().fieldErrors,
+      });
+    }
+
+    // Vérifier que la ressource existe
+    const [existing]: any = await pool.query(
+      'SELECT id FROM ressources WHERE id = ?',
+      [id]
+    );
+    if (existing.length === 0) {
+      return res.status(404).json({ message: 'Ressource introuvable.' });
+    }
+
+    const { domaine_ids, ...fields } = parsed.data;
+
+    // Construire dynamiquement la requête UPDATE selon les champs fournis
+    const entries = Object.entries(fields).filter(([_, v]) => v !== undefined);
+
+    if (entries.length > 0) {
+      const setClause = entries.map(([key]) => `${key} = ?`).join(', ');
+      const values = entries.map(([_, value]) =>
+        typeof value === 'boolean' ? (value ? 1 : 0) : value
+      );
+
+      await pool.query(
+        `UPDATE ressources SET ${setClause} WHERE id = ?`,
+        [...values, id]
+      );
+    }
+
+    // Mettre à jour les domaines si fournis
+    if (domaine_ids) {
+      await pool.query('DELETE FROM ressource_domaines WHERE ressource_id = ?', [id]);
+
+      if (domaine_ids.length > 0) {
+        const values = domaine_ids.map((domaineId) => [id, domaineId]);
+        await pool.query(
+          `INSERT INTO ressource_domaines (ressource_id, domaine_id) VALUES ?`,
+          [values]
+        );
+      }
+    }
+
+    return res.status(200).json({ message: 'Ressource mise à jour avec succès.' });
+
+  } catch (error) {
+    console.error('Erreur updateRessource:', error);
+    return res.status(500).json({ message: 'Erreur serveur, veuillez réessayer.' });
+  }
+};
