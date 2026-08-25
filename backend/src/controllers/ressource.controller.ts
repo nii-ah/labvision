@@ -55,3 +55,107 @@ export const createRessource = async (req: AuthRequest, res: Response) => {
     return res.status(500).json({ message: 'Erreur serveur, veuillez réessayer.' });
   }
 };
+
+// src/controllers/ressource.controller.ts (ajoute cette fonction)
+
+export const getRessources = async (req: AuthRequest, res: Response) => {
+  try {
+    const isConnected = !!req.user;
+    const domaineId = req.query.domaine_id;
+
+    let sql = `
+      SELECT DISTINCT r.id, r.titre, r.description, r.niveau, r.langue, 
+             r.format, r.image_url, r.fichier_url, r.telechargeable, 
+             r.visible_vitrine, r.date_creation
+      FROM ressources r
+    `;
+    const params: any[] = [];
+
+    if (domaineId) {
+      sql += ` INNER JOIN ressource_domaines rd ON rd.ressource_id = r.id `;
+    }
+
+    // Visiteur non connecté : uniquement les ressources mises en avant sur la vitrine
+    if (!isConnected) {
+      sql += ` WHERE r.visible_vitrine = 1`;
+    } else {
+      sql += ` WHERE 1=1`;
+    }
+
+    if (domaineId) {
+      sql += ` AND rd.domaine_id = ?`;
+      params.push(domaineId);
+    }
+
+    sql += ` ORDER BY r.date_creation DESC`;
+
+    const [ressources]: any = await pool.query(sql, params);
+
+    // Masquer fichier_url si visiteur non connecté ET ressource non téléchargeable
+    const result = ressources.map((r: any) => {
+      if (!isConnected && !r.telechargeable) {
+        const { fichier_url, ...rest } = r;
+        return rest;
+      }
+      return r;
+    });
+
+    return res.status(200).json({ ressources: result });
+
+  } catch (error) {
+    console.error('Erreur getRessources:', error);
+    return res.status(500).json({ message: 'Erreur serveur, veuillez réessayer.' });
+  }
+};
+
+
+export const getRessourceById = async (req: AuthRequest, res: Response) => {
+  try {
+    const { id } = req.params;
+    const isConnected = !!req.user;
+
+    const [ressources]: any = await pool.query(
+      `SELECT r.id, r.titre, r.description, r.niveau, r.langue, 
+              r.format, r.image_url, r.fichier_url, r.telechargeable, 
+              r.visible_vitrine, r.date_creation, r.auteur_id,
+              u.nom AS auteur_nom, u.prenom AS auteur_prenom
+       FROM ressources r
+       JOIN users u ON u.id = r.auteur_id
+       WHERE r.id = ?`,
+      [id]
+    );
+
+    if (ressources.length === 0) {
+      return res.status(404).json({ message: 'Ressource introuvable.' });
+    }
+
+    const ressource = ressources[0];
+
+    // Visiteur non connecté : uniquement si la ressource est sur la vitrine
+    if (!isConnected && !ressource.visible_vitrine) {
+      return res.status(404).json({ message: 'Ressource introuvable.' });
+    }
+
+    // Récupérer les domaines liés
+    const [domaines]: any = await pool.query(
+      `SELECT d.id, d.nom FROM domaines d
+       JOIN ressource_domaines rd ON rd.domaine_id = d.id
+       WHERE rd.ressource_id = ?`,
+      [id]
+    );
+    ressource.domaines = domaines;
+
+    // Masquer fichier_url si visiteur non connecté ET non téléchargeable
+    if (!isConnected && !ressource.telechargeable) {
+      delete ressource.fichier_url;
+    }
+
+    return res.status(200).json({ ressource });
+
+  } catch (error) {
+    console.error('Erreur getRessourceById:', error);
+    return res.status(500).json({ message: 'Erreur serveur, veuillez réessayer.' });
+  }
+};
+
+

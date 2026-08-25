@@ -1,11 +1,15 @@
 // src/routes/ressource.routes.ts
 import { Router } from 'express';
-import { createRessource } from '../controllers/ressource.controller';
+import { createRessource, getRessources, getRessourceById } from '../controllers/ressource.controller';
 import { authenticateToken } from '../middlewares/authenticate';
 import { requireRole } from '../middlewares/requireRole';
+import { optionalAuth } from '../middlewares/optionalAuth';
 
-const ressourceRoutes = Router();
 
-ressourceRoutes.post('/ressources', authenticateToken, requireRole('admin'), createRessource);
+const router = Router();
 
-export default ressourceRoutes;
+router.post('/ressources', authenticateToken, requireRole('admin'), createRessource);
+router.get('/ressources', optionalAuth, getRessources);
+router.get('/ressources/:id', optionalAuth, getRessourceById);
+
+export default router;

@@ -13,4 +13,8 @@ export const createRessourceSchema = z.object({
   domaine_ids: z.array(z.number()).min(1, 'Sélectionnez au moins un domaine'),
 });
 
+
+
 export type CreateRessourceInput = z.infer<typeof createRessourceSchema>;
+
+
