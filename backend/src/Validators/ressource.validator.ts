@@ -28,6 +28,10 @@ export const updateRessourceSchema = z.object({
   domaine_ids: z.array(z.number()).optional(),
 });
 
+export const toggleVitrineSchema = z.object({
+  visible_vitrine: z.boolean(),
+});
+
 
 export type CreateRessourceInput = z.infer<typeof createRessourceSchema>;
 
