@@ -48,3 +48,15 @@ export const getRessourceById = async (id: string | number): Promise<RessourceDe
   const response = await api.get<{ ressource: RessourceDetail }>(`/ressources/${id}`);
   return response.data.ressource;
 };
+
+const API_BASE_URL = 'http://localhost:5000/api';
+
+export const getViewUrl = (id: number | string): string => {
+  const token = localStorage.getItem('token');
+  return `${API_BASE_URL}/ressources/${id}/view${token ? `?token=${token}` : ''}`;
+};
+
+export const getDownloadUrl = (id: number | string): string => {
+  const token = localStorage.getItem('token');
+  return `${API_BASE_URL}/ressources/${id}/download${token ? `?token=${token}` : ''}`;
+};

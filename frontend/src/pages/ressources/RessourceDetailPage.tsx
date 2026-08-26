@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, FileText, Video, Headphones, Download, Lock } from "lucide-react";
-import { getRessourceById, type RessourceDetail } from "../../services/ressource.service";
+import { getRessourceById, type RessourceDetail, getViewUrl, getDownloadUrl } from "../../services/ressource.service";
 
 const typeIcons: Record<string, React.ReactElement> = {
   pdf:   <FileText className="w-5 h-5" />,
@@ -97,24 +97,34 @@ export function RessourceDetailPage() {
         )}
 
         <div className="card">
-          {ressource.fichier_url ? (
+            <div className="flex flex-col sm:flex-row gap-3">
             <a
-              href={ressource.fichier_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary-lg w-full justify-center"
+                href={getViewUrl(ressource.id)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary flex-1 justify-center"
             >
-              <Download className="w-5 h-5" />
-              Télécharger / Consulter
+                <FileText className="w-5 h-5" />
+                Consulter
             </a>
-          ) : (
-            <div className="flex items-center gap-3 text-text-secondary">
-              <Lock className="w-5 h-5" />
-              <p className="text-body-sm">
-                Connectez-vous pour accéder au contenu complet de cette ressource.
-              </p>
+
+            {ressource.telechargeable && (
+            <a
+                href={getDownloadUrl(ressource.id)}
+                className="btn-primary-lg flex-1 justify-center"
+            >
+                <Download className="w-5 h-5" />
+                Télécharger
+            </a>
+            )}
             </div>
-          )}
+
+            {!ressource.telechargeable && (
+                <p className="text-caption mt-3 flex items-center gap-1.5">
+                <Lock className="w-3 h-3" />
+                Cette ressource est consultable mais non téléchargeable.
+                </p>
+            )}
         </div>
 
       </div>

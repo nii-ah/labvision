@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { Globe, FileText, FolderOpen, Users, Home} from "lucide-react";
 import logoLabVision from "../../assets/icons/logo_labVision.png";
 
@@ -34,7 +35,8 @@ const projetsRecents = [
   },
 ];
 
-const ressourcesRecentes = [
+/**
+ * const ressourcesRecentes = [
   {
     id: 1,
     titre: "Introduction aux énergies renouvelables",
@@ -57,13 +59,14 @@ const ressourcesRecentes = [
     date: "12 juin 2026",
   },
 ];
+ */
 
 /*
 const typeIcons: Record<string, JSX.Element> = {
   pdf:   <FileText className="w-4 h-4" />,
   video: <FolderOpen className="w-4 h-4" />,
   audio: <BookOpen className="w-4 h-4" />,
-}; */
+
 
 const typeLabels: Record<string, string> = {
   pdf:   "PDF",
@@ -71,16 +74,20 @@ const typeLabels: Record<string, string> = {
   audio: "Audio",
 };
 
+  }; */
+
+
 export function HomePage() {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const [lang, setLang] = useState("fr");
   const toggleLang = () => setLang((prev) => (prev === "fr" ? "mg" : "fr"));
 
+  /**
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     navigate("/login");
-  };
+  };*/
 
   // Récupérer le nom de l'utilisateur depuis localStorage
   const userRaw = localStorage.getItem("user");

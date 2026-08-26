@@ -1,14 +1,16 @@
-// src/middlewares/optionalAuth.ts
+// src/middlewares/optionalAuth.ts (remplace le contenu)
 import { Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { AuthRequest } from './authenticate';
 
 export const optionalAuth = (req: AuthRequest, res: Response, next: NextFunction) => {
   const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
+  const headerToken = authHeader && authHeader.split(' ')[1];
+  const queryToken = req.query.token as string | undefined;
+
+  const token = headerToken || queryToken;
 
   if (!token) {
-    // Pas de token : on continue, req.user reste undefined (visiteur)
     return next();
   }
 
@@ -20,7 +22,7 @@ export const optionalAuth = (req: AuthRequest, res: Response, next: NextFunction
     };
     req.user = decoded;
   } catch (error) {
-    // Token invalide : on l'ignore, on traite comme un visiteur plutôt que de bloquer
+    // Token invalide : traité comme visiteur
   }
 
   next();
