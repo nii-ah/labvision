@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { DemanderAdhesionButton } from "../../components/DemanderAdhesionButton";
 //import { useNavigate } from "react-router-dom";
 import { Globe, FileText, FolderOpen, Users, Home} from "lucide-react";
 import logoLabVision from "../../assets/icons/logo_labVision.png";
@@ -137,6 +138,10 @@ export function HomePage() {
                 <Globe className="w-4 h-4" />
                 <span className="hidden sm:block">{lang === "fr" ? "Malagasy" : "Français"}</span>
               </button>
+              
+                
+                <DemanderAdhesionButton />
+                
 
               {user && (
                 <div className="flex items-center">

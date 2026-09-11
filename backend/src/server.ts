@@ -9,6 +9,7 @@ import { Server } from "socket.io";
 import authRoutes from "./routes/auth.routes";
 import domaineRouter from './routes/domaine.routes';
 import ressourceRoutes from './routes/resource.routes';
+import adhesionRoutes from './routes/adhesion.routes';
 
 const app = express();
 const httpServer = createServer(app);
@@ -37,3 +38,6 @@ app.use('/api', domaineRouter);
 
 // Route liste de tous les ressources
 app.use('/api', ressourceRoutes);
+
+
+app.use('/api', adhesionRoutes);

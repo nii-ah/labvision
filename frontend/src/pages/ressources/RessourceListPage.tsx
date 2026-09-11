@@ -1,7 +1,7 @@
 // src/pages/ressources/RessourceListPage.tsx
 import { useEffect, useState, type ReactElement } from "react";
 import { Link } from "react-router-dom";
-import { FileText, Video, Headphones, Filter } from "lucide-react";
+import { FileText, Video, Headphones, Filter, ArrowLeft } from "lucide-react";
 import { getRessources, getDomaines, type Ressource, type Domaine } from "../../services/ressource.service";
 
 const typeIcons: Record<string, ReactElement> = {
@@ -41,6 +41,10 @@ export function RessourceListPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
 
         <div className="mb-8">
+            <Link to="/home" className="flex items-center gap-2 text-label text-text-secondary hover:text-(--color-primary) mb-6 w-fit">
+                      <ArrowLeft className="w-4 h-4" />
+                      Retour à l'accueil
+                    </Link>
           <h1 className="heading-1">Ressources pédagogiques</h1>
           <p className="text-body mt-2">
             Documents, vidéos et podcasts pour apprendre et partager le savoir-faire du FabLab.

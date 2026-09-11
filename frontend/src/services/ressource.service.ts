@@ -1,6 +1,7 @@
 // src/services/ressource.service.ts
 import api from './api';
 
+
 export interface Domaine {
   id: number;
   nom: string;
@@ -59,4 +60,32 @@ export const getViewUrl = (id: number | string): string => {
 export const getDownloadUrl = (id: number | string): string => {
   const token = localStorage.getItem('token');
   return `${API_BASE_URL}/ressources/${id}/download${token ? `?token=${token}` : ''}`;
+};
+
+export interface CreateRessourcePayload {
+  titre: string;
+  description?: string;
+  niveau: string;
+  langue: string;
+  format: 'pdf' | 'audio' | 'video';
+  telechargeable: boolean;
+  domaine_ids: number[];
+  fichier: File;
+}
+
+export const createRessource = async (payload: CreateRessourcePayload) => {
+  const formData = new FormData();
+  formData.append('titre', payload.titre);
+  if (payload.description) formData.append('description', payload.description);
+  formData.append('niveau', payload.niveau);
+  formData.append('langue', payload.langue);
+  formData.append('format', payload.format);
+  formData.append('telechargeable', String(payload.telechargeable));
+  formData.append('domaine_ids', JSON.stringify(payload.domaine_ids));
+  formData.append('fichier', payload.fichier);
+
+  const response = await api.post('/ressources', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  });
+  return response.data;
 };

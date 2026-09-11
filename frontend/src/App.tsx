@@ -7,6 +7,10 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import { HomePage } from "./pages/home/homePage";
 import { RessourceListPage } from "./pages/ressources/RessourceListPage";
 import { RessourceDetailPage } from "./pages/ressources/RessourceDetailPage";
+import { RessourceCreatePage } from "./pages/ressources/RessourceCreatePage";
+import { AdhesionsAdminPage } from "./pages/admin/AdhesionsAdminPage";
+
+
 
 function App() {
   return (
@@ -33,6 +37,16 @@ function App() {
             </ProtectedRoute>
         } 
        />
+       <Route path="/ressources/nouvelle" element={
+            <ProtectedRoute>
+                <RessourceCreatePage />
+            </ProtectedRoute>
+        } />
+        <Route path="/admin/adhesions" element={
+            <ProtectedRoute>
+                <AdhesionsAdminPage />
+            </ProtectedRoute>
+        } />
     </Routes>
   );
 }
