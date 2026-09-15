@@ -53,3 +53,5 @@ note pour mon livre sue la securiter:
 
 
     logique metier du ressoure et projet est deja terminer mais il faut tester
+
+    K

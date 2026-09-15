@@ -10,6 +10,9 @@ import authRoutes from "./routes/auth.routes";
 import domaineRouter from './routes/domaine.routes';
 import ressourceRoutes from './routes/resource.routes';
 import adhesionRoutes from './routes/adhesion.routes';
+import projetRoutes from './routes/projet.routes';
+
+
 
 const app = express();
 const httpServer = createServer(app);
@@ -41,3 +44,6 @@ app.use('/api', ressourceRoutes);
 
 
 app.use('/api', adhesionRoutes);
+
+
+app.use('/api', projetRoutes);
