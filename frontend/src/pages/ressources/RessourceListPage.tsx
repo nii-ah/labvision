@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FileText, Video, Headphones, Filter, ArrowLeft } from "lucide-react";
 import { getRessources, getDomaines, type Ressource, type Domaine } from "../../services/ressource.service";
 
+
 const typeIcons: Record<string, ReactElement> = {
   pdf:   <FileText className="w-4 h-4" />,
   video: <Video className="w-4 h-4" />,
@@ -56,7 +57,8 @@ export function RessourceListPage() {
           <span className="flex items-center gap-1.5 text-label text-text-secondary">
             <Filter className="w-4 h-4" />
             Filtrer :
-          </span>
+          </span> +
+        
           <button
             onClick={() => setDomaineActif(null)}
             className={domaineActif === null ? "btn-primary-sm" : "badge-neutral"}

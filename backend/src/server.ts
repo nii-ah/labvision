@@ -6,6 +6,7 @@ import express from "express";
 import { createServer } from "http";
 import cors from "cors";
 import { Server } from "socket.io";
+import path from 'path';
 import authRoutes from "./routes/auth.routes";
 import domaineRouter from './routes/domaine.routes';
 import ressourceRoutes from './routes/resource.routes';
@@ -22,6 +23,9 @@ const io = new Server(httpServer, {
 
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
+
+// Sert le dossier uploads/ statiquement
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // Routes API
 app.use("/api", authRoutes);

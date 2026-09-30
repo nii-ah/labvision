@@ -9,6 +9,9 @@ import { RessourceListPage } from "./pages/ressources/RessourceListPage";
 import { RessourceDetailPage } from "./pages/ressources/RessourceDetailPage";
 import { RessourceCreatePage } from "./pages/ressources/RessourceCreatePage";
 import { AdhesionsAdminPage } from "./pages/admin/AdhesionsAdminPage";
+import { ProjetDetailPage } from "./pages/projets/ProjetDetailPage";
+import { ProjetListPage } from "./pages/projets/ProjetListPage";
+import { ProjetCreatePage } from "./pages/projets/ProjetCreatePage";
 
 
 
@@ -41,6 +44,17 @@ function App() {
             <ProtectedRoute>
                 <RessourceCreatePage />
             </ProtectedRoute>
+        } />
+        <Route path="/projets" element={
+            <ProtectedRoute>
+                <ProjetListPage />
+            </ProtectedRoute>
+        } />
+        <Route path="/projets/nouveau" element={
+            <ProtectedRoute><ProjetCreatePage /></ProtectedRoute>
+        } />
+      <Route path="/projets/:id" element={
+            <ProtectedRoute><ProjetDetailPage /></ProtectedRoute>
         } />
         <Route path="/admin/adhesions" element={
             <ProtectedRoute>
