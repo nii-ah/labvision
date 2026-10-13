@@ -12,6 +12,7 @@ import domaineRouter from './routes/domaine.routes';
 import ressourceRoutes from './routes/resource.routes';
 import adhesionRoutes from './routes/adhesion.routes';
 import projetRoutes from './routes/projet.routes';
+import materielRoutes from './routes/materiel.routes';
 
 
 
@@ -51,3 +52,6 @@ app.use('/api', adhesionRoutes);
 
 
 app.use('/api', projetRoutes);
+
+app.use('/api/materiels', materielRoutes);
+
