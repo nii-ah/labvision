@@ -12,6 +12,9 @@ import { AdhesionsAdminPage } from "./pages/admin/AdhesionsAdminPage";
 import { ProjetDetailPage } from "./pages/projets/ProjetDetailPage";
 import { ProjetListPage } from "./pages/projets/ProjetListPage";
 import { ProjetCreatePage } from "./pages/projets/ProjetCreatePage";
+import MaterielsPage from "./pages/materiels/MaterielsPage";
+import MaterielFormPage from "./pages/materiels/MaterielFormPage";
+import MaterielDetailPage from "./pages/materiels/MaterielDetailPage";
 
 
 
@@ -61,6 +64,10 @@ function App() {
                 <AdhesionsAdminPage />
             </ProtectedRoute>
         } />
+        <Route path="/materiels" element={<MaterielsPage />} />
+        <Route path="/materiels/nouveau" element={<ProtectedRoute><MaterielFormPage /></ProtectedRoute>} />
+        <Route path="/materiels/:id" element={<MaterielDetailPage />} />
+        <Route path="/materiels/:id/modifier" element={<ProtectedRoute><MaterielFormPage /></ProtectedRoute>} />
     </Routes>
   );
 }

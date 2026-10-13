@@ -1,7 +1,19 @@
 // src/utils/auth.ts
-export const isAdmin = (): boolean => {
+
+const getUserRoles = (): string[] => {
   const userRaw = localStorage.getItem('user');
-  if (!userRaw) return false;
-  const user = JSON.parse(userRaw);
-  return user.roles?.includes('admin') ?? false;
+  if (!userRaw) return [];
+  try {
+    const user = JSON.parse(userRaw);
+    return Array.isArray(user.roles) ? user.roles : [];
+  } catch {
+    return [];
+  }
 };
+
+export const hasRole = (role: string): boolean => getUserRoles().includes(role);
+
+export const isAdmin = (): boolean => hasRole('admin');
+
+export const canManageMateriels = (): boolean =>
+  isAdmin() || hasRole('resp_materiels');

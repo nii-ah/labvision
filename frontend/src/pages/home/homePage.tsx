@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, type JSX } from "react";
 import { Link } from "react-router-dom";
 import { DemanderAdhesionButton } from "../../components/DemanderAdhesionButton";
 //import { useNavigate } from "react-router-dom";
-import { Globe, FileText, FolderOpen, Users, Home} from "lucide-react";
+import { Globe, FileText, FolderOpen, Users, Home, BookOpen, Toolbox, CalendarDays} from "lucide-react";
 import logoLabVision from "../../assets/icons/logo_labVision.png";
 
 const partenaires = [
-  { id: 1, nom: "École Polytechnique d'Antsiranana" },
+  { id: 1, nom: "École Supérieure Polytechnique d'Antsiranana" },
   { id: 2, nom: "Université d'Antsiranana" },
   { id: 3, nom: "Diasporeines Africa" },
 ];
@@ -36,8 +36,7 @@ const projetsRecents = [
   },
 ];
 
-/**
- * const ressourcesRecentes = [
+const ressourcesRecentes = [
   {
     id: 1,
     titre: "Introduction aux énergies renouvelables",
@@ -60,22 +59,22 @@ const projetsRecents = [
     date: "12 juin 2026",
   },
 ];
- */
+ 
 
-/*
+
 const typeIcons: Record<string, JSX.Element> = {
   pdf:   <FileText className="w-4 h-4" />,
   video: <FolderOpen className="w-4 h-4" />,
   audio: <BookOpen className="w-4 h-4" />,
 
-
+}; 
 const typeLabels: Record<string, string> = {
   pdf:   "PDF",
   video: "Vidéo",
   audio: "Audio",
 };
 
-  }; */
+  
 
 
 export function HomePage() {
@@ -83,12 +82,7 @@ export function HomePage() {
   const [lang, setLang] = useState("fr");
   const toggleLang = () => setLang((prev) => (prev === "fr" ? "mg" : "fr"));
 
-  /**
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    navigate("/login");
-  };*/
+  
 
   // Récupérer le nom de l'utilisateur depuis localStorage
   const userRaw = localStorage.getItem("user");
@@ -116,7 +110,8 @@ export function HomePage() {
                 { label: "Accueil", path: "/home", icon: <Home className="w-4 h-4" /> },
                 { label: "Projets", path: "/projets", icon: <FolderOpen className="w-4 h-4" /> },
                 { label: "Ressources", path: "/ressources", icon: <FileText className="w-4 h-4" /> },
-                { label: "Lab'Vision", path: "/labvision", icon: <Users className="w-4 h-4" /> },
+                { label: "Matériels", path: "/materiels", icon: <Toolbox className="w-4 h-4" /> },
+                { label: "Evenement", path: "/labvision", icon: <CalendarDays className="w-4 h-4" /> },
               ].map((item) => (
                 <Link
                   key={item.path}
@@ -217,7 +212,7 @@ export function HomePage() {
       </section>
 
       {/* ── SECTION RESSOURCES RÉCENTES ────────────────────── */}
-      {/*
+    
       <section className="section-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
@@ -251,7 +246,7 @@ export function HomePage() {
           </div>
 
         </div>
-      </section> */}
+      </section> 
 
       {/* ── FOOTER ─────────────────────────────────────────── */}
       <footer className="section-dark">
