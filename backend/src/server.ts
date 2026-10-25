@@ -13,6 +13,7 @@ import ressourceRoutes from './routes/resource.routes';
 import adhesionRoutes from './routes/adhesion.routes';
 import projetRoutes from './routes/projet.routes';
 import materielRoutes from './routes/materiel.routes';
+import evenementRoutes from './routes/evenement.routes';
 
 
 
@@ -53,5 +54,9 @@ app.use('/api', adhesionRoutes);
 
 app.use('/api', projetRoutes);
 
+
 app.use('/api/materiels', materielRoutes);
+
+
+app.use('/api/evenements', evenementRoutes);
 

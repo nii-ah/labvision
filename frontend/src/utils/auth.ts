@@ -17,3 +17,6 @@ export const isAdmin = (): boolean => hasRole('admin');
 
 export const canManageMateriels = (): boolean =>
   isAdmin() || hasRole('resp_materiels');
+
+export const canManageEvenements = (): boolean =>
+  isAdmin() || hasRole('resp_activites');

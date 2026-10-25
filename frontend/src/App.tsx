@@ -15,6 +15,8 @@ import { ProjetCreatePage } from "./pages/projets/ProjetCreatePage";
 import MaterielsPage from "./pages/materiels/MaterielsPage";
 import MaterielFormPage from "./pages/materiels/MaterielFormPage";
 import MaterielDetailPage from "./pages/materiels/MaterielDetailPage";
+import CalendrierPage from "./pages/evenements/CalendrierPage";
+import EvenementsAdminPage from "./pages/admin/EvenementsAdminPage";
 
 
 
@@ -68,6 +70,9 @@ function App() {
         <Route path="/materiels/nouveau" element={<ProtectedRoute><MaterielFormPage /></ProtectedRoute>} />
         <Route path="/materiels/:id" element={<MaterielDetailPage />} />
         <Route path="/materiels/:id/modifier" element={<ProtectedRoute><MaterielFormPage /></ProtectedRoute>} />
+        <Route path="/evenements" element={<CalendrierPage />} />
+        <Route path="/admin/evenements" element={<ProtectedRoute><EvenementsAdminPage /></ProtectedRoute>}
+        />
     </Routes>
   );
 }

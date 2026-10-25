@@ -2,9 +2,9 @@
 
 @theme {
   /* ── COULEURS ────────────────────────────────────────── */
-  --color-primary:           #611677;
+  --color-primary:           #680482;
   --color-primary-hover:     #4e1260;
-  --color-secondary:         #27a49b;
+  --color-secondary:         #10767D;
   --color-secondary-dark:    #2a7474;
   --color-neutral:           #7a969f;
 
@@ -13,7 +13,7 @@
 
   --color-bg-main:           #FFFFFF;
   --color-bg-alt:            #F8F9FA;
-  --color-bg-dark:           #2a2a2a;
+  --color-bg-dark:           #1C2036;
 
   --color-border:            #D9D9D9;
   --color-border-standard:   #7a969f;

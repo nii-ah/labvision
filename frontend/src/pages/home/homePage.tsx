@@ -2,7 +2,7 @@ import { useState, type JSX } from "react";
 import { Link } from "react-router-dom";
 import { DemanderAdhesionButton } from "../../components/DemanderAdhesionButton";
 //import { useNavigate } from "react-router-dom";
-import { Globe, FileText, FolderOpen, Users, Home, BookOpen, Toolbox, CalendarDays} from "lucide-react";
+import { Globe, FileText, FolderOpen, Home, BookOpen, Toolbox, CalendarDays} from "lucide-react";
 import logoLabVision from "../../assets/icons/logo_labVision.png";
 
 const partenaires = [
@@ -111,12 +111,12 @@ export function HomePage() {
                 { label: "Projets", path: "/projets", icon: <FolderOpen className="w-4 h-4" /> },
                 { label: "Ressources", path: "/ressources", icon: <FileText className="w-4 h-4" /> },
                 { label: "Matériels", path: "/materiels", icon: <Toolbox className="w-4 h-4" /> },
-                { label: "Evenement", path: "/labvision", icon: <CalendarDays className="w-4 h-4" /> },
+                { label: "Evenement", path: "/evenements", icon: <CalendarDays className="w-4 h-4" /> },
               ].map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="flex items-center gap-2 px-3 py-2 text-label border border-border text-text-secondary hover:text-(--color-primary) hover:bg-bg-alt rounded-sm transition"
+                  className="flex items-center gap-2 px-3 py-2 text-label border border-border text-text-secondary hover:text-primary hover:bg-bg-alt rounded-sm transition"
                 >
                   {item.icon}
                   {item.label}
@@ -140,7 +140,7 @@ export function HomePage() {
 
               {user && (
                 <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-(--color-primary) flex items-center justify-center text-white text-sm font-bold shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-sm font-bold shrink-0">
                     {user.prenom?.[0]}{user.nom?.[0]}
                   </div>
                 </div>
