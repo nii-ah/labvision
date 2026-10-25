@@ -12,7 +12,7 @@ import {
 } from '../../utils/evenements';
 
 const JOURS = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
-const MAX_PAR_CASE = 3;
+
 
 type Selection =
   | { type: 'evenement'; evenement: Evenement }
@@ -74,7 +74,7 @@ export default function CalendrierPage() {
       <div className="mb-4 shrink-0">
         <Link
           to="/home"
-          className="flex items-center gap-2 text-label text-text-secondary hover:text-(--color-primary) mb-4 w-fit"
+          className="flex items-center gap-2 text-label text-text-secondary hover:text-primary mb-4 w-fit"
         >
           <ArrowLeft className="w-4 h-4" />
           Retour à l'accueil
@@ -154,7 +154,7 @@ export default function CalendrierPage() {
                   <span
                     className={`flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-bold sm:h-6 sm:w-6 sm:text-xs ${
                       cle === aujourdhui
-                        ? 'bg-[#611677] text-white'
+                        ? 'bg-border-focus text-white'
                         : horsMois
                         ? 'text-[#7a969f]'
                         : 'text-[#2a2a2a]'
@@ -168,7 +168,7 @@ export default function CalendrierPage() {
                 {liste.length > 0 && (
                   <div className="flex flex-wrap justify-center gap-0.5 sm:hidden">
                     {liste.slice(0, 4).map((e) => (
-                      <span key={e.id} className="h-1.5 w-1.5 rounded-full bg-[#611677]" />
+                      <span key={e.id} className="h-1.5 w-1.5 rounded-full bg-border-focus" />
                     ))}
                   </div>
                 )}
@@ -183,7 +183,7 @@ export default function CalendrierPage() {
                         setSelection({ type: 'evenement', evenement: e });
                       }}
                       title={e.titre}
-                      className="block w-full truncate rounded-[4px] bg-[#611677]/10 px-1.5 py-0.5 text-left text-xs font-bold text-[#611677] hover:bg-[#611677]/20"
+                      className="block w-full truncate rounded-xs bg-border-focus/10 px-1.5 py-0.5 text-left text-xs font-bold text-border-focus hover:bg-border-focus/20"
                     >
                       {e.titre}
                     </button>

@@ -64,7 +64,7 @@ export default function MaterielsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
 
       <div className="mb-8">
-        <Link to="/home" className="flex items-center gap-2 text-label text-text-secondary hover:text-(--color-primary) mb-6 w-fit">
+        <Link to="/home" className="flex items-center gap-2 text-label text-text-secondary hover:text-primary mb-6 w-fit">
             <ArrowLeft className="w-4 h-4" />
             Retour à l'accueil
         </Link>

@@ -36,11 +36,11 @@ export default function EvenementPhoto({ id, alt, className = '', version = 0 }:
 
   if (echec) {
     return (
-      <div className={`flex items-center justify-center bg-[#F8F9FA] ${className}`}>
+      <div className={`flex items-center justify-center bg-bg-alt ${className}`}>
         <ImageOff className="w-6 h-6 text-[#7a969f]" />
       </div>
     );
   }
-  if (!src) return <div className={`animate-pulse bg-[#F8F9FA] ${className}`} />;
+  if (!src) return <div className={`animate-pulse bg-bg-alt ${className}`} />;
   return <img src={src} alt={alt} className={`object-cover ${className}`} />;
 }
